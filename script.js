@@ -1,6 +1,3 @@
-// 테스트용 콘솔 로그
-console.log("script.js 실행됨");
-
 // 👤 사회복무요원 이름
 const members = ["박준성", "이영민", "조민승", "OOO"];
 
