@@ -1,24 +1,28 @@
-👤 사회복무요원 이름
+// 테스트용 콘솔 로그
+console.log("script.js 실행됨");
+
+// 👤 사회복무요원 이름
 const members = ["박준성", "이영민", "조민승", "OOO"];
 
 // 🗂 업무 목록
-const tasks = ["오전셔틀", "오후셔틀", "식사배달", "스크린파크골프"];
+const tasks = ["오전셔틀", "오후셔틀", "식사배달", "파크골프"];
 
-// 📅 1주차 시작 날짜 (월요일 추천)
-const startDate = new Date("2026-02-03");
+// 📅 기준 날짜 (과거 날짜로 고정 — 중요)
+const startDate = new Date("2025-01-01");
 const today = new Date();
 
-// 몇 주가 지났는지 계산
+// 주 차이 계산
 const weekDiff = Math.floor(
-  (today - startDate) / (1000 * 60 * 60 * 24 * 7)
+  (today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 7)
 );
 
-// 화면에 출력
-let html = "<ul>";
+// 결과 출력
+const resultEl = document.getElementById("result");
+resultEl.innerHTML = "";
+
 tasks.forEach((task, i) => {
   const member = members[(i + weekDiff) % members.length];
-  html += `<li>${task} : ${member}</li>`;
+  const li = document.createElement("li");
+  li.textContent = `${task} : ${member}`;
+  resultEl.appendChild(li);
 });
-html += "</ul>";
-
-document.getElementById("result").innerHTML = html;
