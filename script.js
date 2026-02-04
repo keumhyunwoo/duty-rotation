@@ -1,4 +1,3 @@
-alert("JS 실행됨");
 // 테스트용 콘솔 로그
 console.log("script.js 실행됨");
 
