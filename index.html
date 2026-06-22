@@ -16,8 +16,8 @@
     // 🗂 업무 목록
     const tasks = ["식사배달", "오전셔틀", "오후셔틀", "파크골프"];
 
-    // 📅 기준 날짜
-    const startDate = new Date("2026-02-09");
+    // 📅 기준 날짜 (과거 날짜)
+    const startDate = new Date("2026-02-02");
     const today = new Date();
 
     const weekDiff = Math.floor(
@@ -33,5 +33,3 @@
       resultEl.appendChild(li);
     });
   </script>
-</body>
-</html>
