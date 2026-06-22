@@ -11,14 +11,14 @@
 
   <script>
     // 👤 사회복무요원 이름
-    const members = ["권한진", "박준성", "이영민", "조민승"];
+    const members = ["조민승", "권한진", "박준성", "이영민"];
 
     // 🗂 업무 목록
     const tasks = ["식사배달", "오전셔틀", "오후셔틀", "파크골프"];
 
     // 📅 기준 날짜 (권한진-박준성-이영민-조민승 순서로 시작하는 날짜)
     const startDate = new Date("2026-02-02");
-    const today = new Date("2026-02-09");
+    const today = new Date();
 
     const weekDiff = Math.floor(
       (today - startDate) / (1000 * 60 * 60 * 24 * 7)
