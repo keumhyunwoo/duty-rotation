@@ -1,26 +1,37 @@
-<script>
-  const members = ["권한진", "박준성", "이영민", "조민승"];
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>사회복무요원 업무 로테이션</title>
+</head>
+<body>
+  <h1>이번 주 업무 담당</h1>
 
-  const tasks = ["식사배달", "오전셔틀", "오후셔틀", "파크골프"];
+  <ul id="result"></ul>
 
-  const startDate = new Date("2026-02-02");
-  const today = new Date();
+  <script>
+    // 👤 사회복무요원 이름
+    const members = ["권한진", "박준성", "이영민", "조민승"];
 
-  const weekDiff = Math.floor(
-    (today - startDate) / (1000 * 60 * 60 * 24 * 7)
-  );
+    // 🗂 업무 목록
+    const tasks = ["식사배달", "오전셔틀", "오후셔틀", "파크골프"];
 
-  const rotation = weekDiff % members.length;
+    // 📅 기준 날짜
+    const startDate = new Date("2026-02-02");
+    const today = new Date();
 
-  const resultEl = document.getElementById("result");
+    const weekDiff = Math.floor(
+      (today - startDate) / (1000 * 60 * 60 * 24 * 7)
+    );
 
-  tasks.forEach((task, i) => {
-    const member = members[
-      (i - rotation + members.length) % members.length
-    ];
+    const resultEl = document.getElementById("result");
 
-    const li = document.createElement("li");
-    li.textContent = `${task} : ${member}`;
-    resultEl.appendChild(li);
-  });
-</script>
+    tasks.forEach((task, i) => {
+      const member = members[(i - weekDiff + members.length * 100) % members.length];
+      const li = document.createElement("li");
+      li.textContent = `${task} : ${member}`;
+      resultEl.appendChild(li);
+    });
+  </script>
+</body>
+</html>
